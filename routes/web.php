@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/oauth/token', 'Auth\AccessTokenController@issueToken');
