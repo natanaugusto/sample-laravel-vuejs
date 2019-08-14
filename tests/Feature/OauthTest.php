@@ -3,23 +3,14 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 use App\User;
-use Illuminate\Support\Facades\Artisan;
 use Laravel\Passport\Client as OauthClient;
 use Illuminate\Support\Facades\Hash;
 
 class OauthTest extends TestCase
 {
-    use DatabaseMigrations;
 
-    public function setUp()
-    {
-        parent::setUp();
-        Artisan::call('passport:install', ['-vvv' => true]);
-    }
     /**
      * Test the login with passport
      *
@@ -41,7 +32,7 @@ class OauthTest extends TestCase
             'scope' => '*'
         ];
 
-        $this->post('/oauth/token', $body, ['Accept' => 'application/json'])
+        $this->post('/oauth/token', $body)
             ->assertStatus(200)
             ->assertJsonStructure([
                 'id',

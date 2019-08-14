@@ -12,13 +12,13 @@ class RolesAndPermissionsSeeder extends Seeder
 
     public static $permissions = [
         'list products',
-        'view products',
+        'view product',
         'add product',
         'update product',
         'delete product',
         'list categories',
-        'view categories',
         'add category',
+        'view category',
         'update category',
         'delete category',
     ];
