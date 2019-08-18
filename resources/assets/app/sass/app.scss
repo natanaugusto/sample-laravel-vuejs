@@ -1,0 +1,57 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
+// Bootstrap
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins/_breakpoints";
+
+// Variables
+@import "variables";
+
+body {
+  background-color: $body-bg;
+  color: $text-color;
+}
+
+a {
+  text-decoration: none;
+}
+
+.navbar {
+  background-color: $navbar-default-bg;
+  margin-bottom: 1em;
+}
+
+.card {
+  padding: 2%;
+
+  &.big-top {
+    margin-top: 6% !important;
+  }
+
+  h1 {
+    padding: 0.2em;
+    color: $h-color;
+    font-size: 1.8em;
+    border-bottom: $h-border;
+    text-align: center;
+  }
+
+  h2 {
+    padding: 0.2em;
+    text-align: left;
+    color: $h-color;
+    font-size: 1.4em;
+    border-bottom: $h-border;
+  }
+
+  label {
+    float: left;
+  }
+
+  .row {
+    padding: 0.5em;
+  }
+}

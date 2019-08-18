@@ -10,6 +10,6 @@ $factory->define(Product::class, function (Faker $faker) {
         'name' => $faker->unique()->name(),
         'description' => $faker->text(200),
         'category_id' => $category->id,
-        'price' => $faker->randomFloat(2),
+        'price' => $faker->randomFloat(2, 200, 10000),
     ];
 });

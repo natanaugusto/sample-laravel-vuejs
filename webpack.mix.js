@@ -1,4 +1,5 @@
-let mix = require('laravel-mix');
+const mix = require('laravel-mix')
+const Dotenv = require('dotenv-webpack')
 
 /*
  |--------------------------------------------------------------------------
@@ -11,5 +12,10 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+mix.js('resources/assets/app/js/app.js', 'public/app/js')
+  .sass('resources/assets/app/sass/app.scss', 'public/app/css')
+  .webpackConfig({
+    plugins: [
+      new Dotenv()
+    ]
+  })
