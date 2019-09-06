@@ -8,23 +8,23 @@ class CategoriesSeeder extends Seeder
     protected $categories = [
         [
             'id' => 1,
-            'name' => 'Armadura',
-            'slug' => 'armadura',
+            'name' => 'Armor',
+            'slug' => 'armor',
         ],
         [
             'id' => 2,
-            'name' => 'Espada',
-            'slug' => 'espada',
+            'name' => 'Sword',
+            'slug' => 'sword',
         ],
         [
             'id' => 3,
-            'name' => 'Elmo',
-            'slug' => 'elmo',
+            'name' => 'Helmet',
+            'slug' => 'helmet',
         ],
         [
             'id' => 4,
-            'name' => 'Poção Mágica',
-            'slug' => 'pocao_magica',
+            'name' => 'Shield',
+            'slug' => 'shield',
         ]
     ];
     /**

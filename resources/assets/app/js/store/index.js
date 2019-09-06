@@ -1,3 +1,5 @@
+import createPersistedState from 'vuex-persistedstate';
+
 const deepmerge = require('deepmerge')
 const merge = (objs) => {
     if(objs.length < 2) {
@@ -26,7 +28,10 @@ const store = new Vuex.Store(
   merge([
     auth,
     products,
-    categories
+    categories,
+    {
+      plugins: [ createPersistedState() ]
+    }
   ])
 )
 export default store

@@ -16,7 +16,6 @@ class Products extends Controller
     /**
      * Display a listing of the resource.
      *
-     * 
      * @return \Illuminate\Http\JsonResponse
      */
     public function index(Request $request)
@@ -61,7 +60,7 @@ class Products extends Controller
             $product->category_id = $request->input('category_id');
             $product->price = $request->input('price');
             $product->save();
-            
+
             $response = response()->json(
                 $product, 201
             )->setEncodingOptions(JSON_NUMERIC_CHECK);
@@ -75,9 +74,8 @@ class Products extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * 
      * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
      */
     public function show(Request $request, $id)
@@ -133,7 +131,7 @@ class Products extends Controller
                 $product->price = $request->input('price');
             }
             $product->save();
-            
+
             $response = response()->json(
                 $product, 201
             )->setEncodingOptions(JSON_NUMERIC_CHECK);

@@ -8,11 +8,15 @@
       bordered
     >
       <template slot="[actions]" slot-scope="data">
-        <router-link :to="{ path: 'products/view/' + data.item.id }">
+        <router-link :to="{ path: `products/view/${data.item.id}`}">
           <font-awesome-icon fas icon="eye" />
         </router-link>
-        <font-awesome-icon fas icon="edit" />
-        <font-awesome-icon fas icon="trash" />
+        <router-link :to="{ path: `products/edit/${data.item.id}`}">
+          <font-awesome-icon fas icon="edit" />
+        </router-link>
+        <a @click.prevent="deleteItem(data.item.id)">
+          <font-awesome-icon fas icon="trash" />
+        </a>
       </template>
     </b-table>
     <b-pagination
@@ -24,6 +28,14 @@
     />
   </div>
 </template>
+
+<style lang="scss" scoped>
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+</style>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
@@ -54,10 +66,17 @@ export default {
   },
   methods: {
     ...mapActions([
-      'loadProducts'
+      'loadProducts',
+      'deleteProduct'
     ]),
     load(page) {
       this.loadProducts(page)
+    },
+    deleteItem(id) {
+      this.deleteProduct(id)
+        .then(res => {
+          this.loadProducts(this.currentPage)
+        })
     },
     pageChange(page) {
       this.loadProducts(page)

@@ -1,16 +1,36 @@
-import createPersistedState from 'vuex-persistedstate';
-
 const auth = {
   state: {
     user: null
   },
+  mutations: {
+    /**
+     * Set the authenticated user
+     *
+     * @param {object} state
+     * @param {object} user
+     */
+    SET_USER(state, user) {
+      state.user = user
+    }
+  },
   getters: {
+    /**
+     * Verify if exist a user authenticated setted
+     *
+     * @param {object} state
+     */
     isAuthenticated(state) {
       return !!state.user
     }
   },
   actions: {
-    login({ state }, user) {
+    /**
+     * Attempt a user login on the API
+     *
+     * @param {object} param0
+     * @param {object} user
+     */
+    login({ commit }, user) {
       return axios.post('/oauth/token', {
         username: user.username,
         password: user.password,
@@ -21,7 +41,7 @@ const auth = {
       })
       .then(res => {
         if(res.status === 200) {
-          state.user = res.data
+          commit('SET_USER', res.data)
         }
         return res
       })
@@ -29,8 +49,7 @@ const auth = {
         throw err.response
       })
     }
-  },
-  plugins: [ createPersistedState() ]
+  }
 }
 
 export default auth
