@@ -1,65 +1,69 @@
 <template>
-  <b-form @submit.prevent="onSubmit">
-    <div class="row">
-      <div class="col-md-6">
-        <b-form-group
-          id="group-name"
-          label="Name"
-          label-for="input-name"
-          :invalid-feedback="inputs.name.message"
-        >
-          <b-form-input
-            id="input-name"
-            v-model="inputs.name.value"
-            required
-            placeholder="The product name"
-            :state="inputs.name.state"
-          />
-        </b-form-group>
-        <b-form-group
-          id="group-category_id"
-          label="Category"
-          label-for="input-category_id"
-          :invalid-feedback="inputs.category_id.message"
-        >
-          <b-form-select
-            v-model="inputs.category_id.value"
-            :options="categories"
-            :state="inputs.category_id.state"
-          />
-        </b-form-group>
-      </div>
-      <div class="col-md-6">
-        <b-form-group
-          id="group-price"
-          label="Price"
-          label-for="input-price"
-          :invalid-feedback="inputs.price.message"
-        >
-          <b-form-input
-            id="input-price"
-            v-model.lazy="inputs.price.value"
-            v-money="money"
-            required
-            placeholder="The product Price"
-            :state="inputs.price.state"
-          />
-        </b-form-group>
-      </div>
-      <div class="col-md-12">
-        <b-form-group
-          id="group-description"
-          label="Description"
-          label-for="input-description"
-          :invalid-feedback="inputs.description.message"
-        >
-          <div class="row"></div>
-          <Vueditor id="input-description" ref="vueditor" class="form-control" />
-        </b-form-group>
-      </div>
+  <section class="col-md-12 text-center justify-content-center">
+    <div class="card col-md-12">
+      <b-form @submit.prevent="onSubmit">
+        <div class="row">
+          <div class="col-md-6">
+            <b-form-group
+              id="group-name"
+              label="Name"
+              label-for="input-name"
+              :invalid-feedback="inputs.name.message"
+            >
+              <b-form-input
+                id="input-name"
+                v-model="inputs.name.value"
+                required
+                placeholder="The product name"
+                :state="inputs.name.state"
+              />
+            </b-form-group>
+            <b-form-group
+              id="group-category_id"
+              label="Category"
+              label-for="input-category_id"
+              :invalid-feedback="inputs.category_id.message"
+            >
+              <b-form-select
+                v-model="inputs.category_id.value"
+                :options="categories"
+                :state="inputs.category_id.state"
+              />
+            </b-form-group>
+          </div>
+          <div class="col-md-6">
+            <b-form-group
+              id="group-price"
+              label="Price"
+              label-for="input-price"
+              :invalid-feedback="inputs.price.message"
+            >
+              <b-form-input
+                id="input-price"
+                v-model.lazy="inputs.price.value"
+                v-money="money"
+                required
+                placeholder="The product Price"
+                :state="inputs.price.state"
+              />
+            </b-form-group>
+          </div>
+          <div class="col-md-12">
+            <b-form-group
+              id="group-description"
+              label="Description"
+              label-for="input-description"
+              :invalid-feedback="inputs.description.message"
+            >
+              <div class="row"></div>
+              <Vueditor id="input-description" ref="vueditor" class="form-control" />
+            </b-form-group>
+          </div>
+        </div>
+        <b-button variant="success" type="submit">Submit</b-button>
+      </b-form>
     </div>
-    <b-button variant="success" type="submit">Submit</b-button>
-  </b-form>
+  </section>
 </template>
 
 <script>

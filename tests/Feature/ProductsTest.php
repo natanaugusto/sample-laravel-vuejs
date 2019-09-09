@@ -88,6 +88,16 @@ class ProductsTest extends TestCase
 
   public function testSearchProduct()
   {
+    $this->passportActingAs('admin');
+    factory(Product::class, 30)->create();
+    $productToSearch = Product::first();
+    $search = substr($productToSearch->name, 0, 3);
+    $this->get("/api/products?search={$search}")
+    ->assertStatus(200)
+    ->assertJsonFragment($productToSearch->toArray());
 
+    $this->passportActingAs();
+    $this->get('/api/products')
+    ->assertStatus(401);
   }
 }

@@ -26,9 +26,12 @@ class Products extends Controller
         return $hasPermission;
       }
 
-      $response = response()
-      ->json(Product::paginate(new Product())->getPerPage());
+      $perPage = (new Product())->getPerPage();
+      $paginator = $request->query('search')
+      ? Product::whereLike('name', $request->query('search'))->paginate($perPage)
+      : Product::paginate($perPage);
 
+      $response = response()->json($paginator);
       $this->registerLog(self::LOG_INDEX, 'info', $request, $response);
       return $response;
     } catch(\Exception $e) {

@@ -1,26 +1,30 @@
 <template>
-  <div class="row">
-    <div class="col-md-6">
+  <section class="col-md-12 text-center justify-content-center">
+    <div class="card col-md-12">
       <div class="row">
-        <label>Name</label>
-        <div>{{ product.name }}</div>
-      </div>
-      <div class="row">
-        <label>Category</label>
-        <div>{{ product.category_name }}</div>
-      </div>
-      <div class="row">
-        <label>Price</label>
-        <div>{{ product.price }}</div>
+        <div class="col-md-6">
+          <div class="row">
+            <label>Name</label>
+            <div>{{ product.name }}</div>
+          </div>
+          <div class="row">
+            <label>Category</label>
+            <div>{{ product.category_name }}</div>
+          </div>
+          <div class="row">
+            <label>Price</label>
+            <div>{{ product.price }}</div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <label>Description</label>
+            <div>{{ product.description }}</div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="row">
-        <label>Description</label>
-        <div>{{ product.description }}</div>
-      </div>
-    </div>
-  </div>
+  </section>
 </template>
 
 <style lang="scss" scoped>

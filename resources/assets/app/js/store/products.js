@@ -97,6 +97,17 @@ const products = {
         .catch(err => {
           throw err.response
         })
+    },
+    productsSearchByName({ commit }, name) {
+      return axios.get(`/api/products?search=${name}`)
+        .then(res => {
+          if(res.status === 200) {
+            commit('SET_PRODUCT_PAGINATOR', res.data)
+          }
+        })
+        .catch(err => {
+          throw err.response
+        })
     }
   },
   getters: {
